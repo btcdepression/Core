@@ -19,10 +19,4 @@ task runWithJavaExec(type: JavaExec) {
 dependencies {
     implementation project(':APIUtils')
     implementation project(':UIUtils')
-    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:3.141.59'
-    // https://bintray.com/bintray/jcenter/io.rest-assured%3Arest-assured
-    implementation 'io.rest-assured:rest-assured:5.0.1'
-    // https://bintray.com/bintray/jcenter/io.rest-assured%3Ajson-path
-    implementation 'io.rest-assured:json-path:5.0.1'
 }
