@@ -6,7 +6,7 @@ repositories {
 }
 apply plugin : "java"
 ext {
-    javaMainClass = "test"
+    javaMainClass = "mainClass"
 }
 
 task runWithJavaExec(type: JavaExec) {
