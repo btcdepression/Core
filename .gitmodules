@@ -1,0 +1,6 @@
+[submodule "UIUtils"]
+	path = UIUtils
+	url = https://github.com/btcdepression/UIUtils.git
+[submodule "APIUtils"]
+	path = APIUtils
+	url = https://github.com/btcdepression/APIUtils.git
