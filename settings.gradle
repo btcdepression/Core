@@ -1,3 +1,4 @@
 rootProject.name = 'Core'
-include 'APIUtils' , 'UIUtils'
+include ':APIUtils'
+include ':UIUtils'
 

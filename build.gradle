@@ -1,10 +1,13 @@
 plugins {
     id "application"
+//    to run all features with 'gradlew cucumber'
+    id "se.thinkcode.cucumber-runner" version "0.0.8"
 }
 repositories {
     mavenCentral()
+    jcenter()
 }
-apply plugin : "java"
+apply plugin: "java"
 ext {
     javaMainClass = "mainClass"
 }
@@ -16,7 +19,29 @@ task runWithJavaExec(type: JavaExec) {
     main = javaMainClass
 }
 
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
 dependencies {
-    implementation project(':APIUtils')
-    implementation project(':UIUtils')
+
+    implementation project('UIUtils')
+    implementation project('APIUtils')
+
+    testImplementation project(":UIUtils")
+    testImplementation project(":APIUtils")
+
+    implementation group: 'com.codeborne', name: 'selenide', version: '6.5.0'
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '6.5.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'io.cucumber:cucumber-java:7.3.3'
+    testImplementation 'io.cucumber:cucumber-junit:7.3.3'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.8.2'
+
+}
+test {
+    useJUnitPlatform()
 }
