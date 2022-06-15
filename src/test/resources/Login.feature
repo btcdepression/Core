@@ -6,7 +6,6 @@ Feature: Login positive/negative scenarios
     And enter secret_sauce password
     And click 'login' CTA
     Then customer checks current url
-    And customer checks current main title
 
   Scenario: Negative authorization
     Given open 'Login page'

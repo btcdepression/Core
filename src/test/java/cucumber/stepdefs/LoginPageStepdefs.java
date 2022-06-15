@@ -1,15 +1,16 @@
 package cucumber.stepdefs;
 
-import common.login.LoginPage;
 import io.cucumber.java.en.And;
-import org.junit.jupiter.api.Assertions;
+import pages.LoginPage;
 
 import static com.codeborne.selenide.Selenide.page;
-import static constants.Constants.ERROR_MESSAGE;
+import static constants.Constants.LOGIN_ERROR_MESSAGE;
+import static org.junit.Assert.assertEquals;
 
 public class LoginPageStepdefs {
 
     LoginPage loginPage = page(LoginPage.class);
+
 
     @And("^open 'Login page'$")
     public void navigateLoginPage() {
@@ -33,6 +34,6 @@ public class LoginPageStepdefs {
 
     @And("^customer sees error message")
     public void customerSeesErrorMessage() {
-        Assertions.assertEquals(ERROR_MESSAGE, loginPage.getErrorMessageText(), "Error message doesn't match");
+        assertEquals("Error message doesn't match", LOGIN_ERROR_MESSAGE, loginPage.getErrorMessageText());
     }
 }
